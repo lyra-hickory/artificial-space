@@ -146,7 +146,10 @@ main()
 - **OpenGL:** the commands we send the GPU (buffers, shaders, draw calls).
   Not an engine: we write the engine.
 
-Still outstanding: install `cmake pkg-config libglfw3-dev mesa-utils` and check
-the OpenGL version.
+Toolchain installed and checked (2026-11-03): `glxinfo -B` on the VM's desktop
+reports **OpenGL 4.5 core** via Mesa's **llvmpipe**. That's software rendering on
+the CPU ("Accelerated: no"), because the VM's Virtio GPU has no 3D passthrough.
+It's fine for 001. Revisit if performance hurts later. Target: **OpenGL 4.5
+core**, with no raw GL calls outside `render/` (keeps a 4.1/macOS fallback contained).
 
 Next: code architecture, then the implementation doc.
