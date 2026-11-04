@@ -43,3 +43,4 @@ Related: links to docs / features
 | [T0001](T0001-glfw-static.md) | Build GLFW from source, link statically | open | tech debt |
 | [T0002](T0002-window-size-fullscreen.md) | Window size and fullscreen | open | idea |
 | [T0003](T0003-gl-handle-template.md) | Refactor GL wrappers into a generic handle template | open | tech debt |
+| [T0004](T0004-clang-format.md) | Consistent code formatting (clang-format) | done | chore |

@@ -7,11 +7,11 @@
 // is exactly one of these and it stays put.
 class GlfwLibrary {
 public:
-    GlfwLibrary();   // throws std::runtime_error if GLFW can't start
-    ~GlfwLibrary();
+  GlfwLibrary(); // throws std::runtime_error if GLFW can't start
+  ~GlfwLibrary();
 
-    GlfwLibrary(const GlfwLibrary&) = delete;
-    GlfwLibrary& operator=(const GlfwLibrary&) = delete;
-    GlfwLibrary(GlfwLibrary&&) = delete;
-    GlfwLibrary& operator=(GlfwLibrary&&) = delete;
+  GlfwLibrary(const GlfwLibrary &) = delete;
+  GlfwLibrary &operator=(const GlfwLibrary &) = delete;
+  GlfwLibrary(GlfwLibrary &&) = delete;
+  GlfwLibrary &operator=(GlfwLibrary &&) = delete;
 };

@@ -1,0 +1,5 @@
+# Code style for our C++ (not external/, which is generated or vendored).
+# Plain LLVM style: 2-space indent, 80 columns, `const T &`.
+# It matches what Lyra's editor produces, so editor and agent format alike.
+# Format a file: clang-format -i <file>
+BasedOnStyle: LLVM

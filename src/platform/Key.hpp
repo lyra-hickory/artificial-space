@@ -5,5 +5,5 @@
 // `enum class` (not plain `enum`): the names are scoped (Key::Escape) and
 // don't silently convert to int.
 enum class Key {
-    Escape,
+  Escape,
 };

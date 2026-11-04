@@ -702,6 +702,11 @@ Lyra to check in review:
   flags and does nothing without a debug context, so there's no `#ifdef` in
   `render/`. `Window` requests the debug context only when `NDEBUG` isn't
   defined (Debug builds).
+- **`.clangd`** (added after Lyra's editor reported `'platform/Key.hpp' file
+  not found`): clangd didn't know about `-I src`, because CMake writes
+  `compile_commands.json` into `build/debug/`, where clangd doesn't look. A
+  two-line `.clangd` points it there. The symlink alternative was rejected
+  (fiddly in git).
 - **Leak reports on exit (3.5): left as is (Lyra, 2026-11-03).** The Debug
   build's exit code is 1 because of LeakSanitizer, even when our `main` returns 0.
   The **expected baseline** on the dev VM (Mesa llvmpipe):

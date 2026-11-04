@@ -11,18 +11,18 @@
 // Not copyable, movable: same reasoning as Buffer.
 class ShaderProgram {
 public:
-    ShaderProgram(const std::filesystem::path& vertex_path,
-                  const std::filesystem::path& fragment_path);
-    ~ShaderProgram();
+  ShaderProgram(const std::filesystem::path &vertex_path,
+                const std::filesystem::path &fragment_path);
+  ~ShaderProgram();
 
-    ShaderProgram(const ShaderProgram&) = delete;
-    ShaderProgram& operator=(const ShaderProgram&) = delete;
-    ShaderProgram(ShaderProgram&& other) noexcept;
-    ShaderProgram& operator=(ShaderProgram&& other) noexcept;
+  ShaderProgram(const ShaderProgram &) = delete;
+  ShaderProgram &operator=(const ShaderProgram &) = delete;
+  ShaderProgram(ShaderProgram &&other) noexcept;
+  ShaderProgram &operator=(ShaderProgram &&other) noexcept;
 
-    void use() const;
-    GLuint id() const { return m_id; }
+  void use() const;
+  GLuint id() const { return m_id; }
 
 private:
-    GLuint m_id = 0;
+  GLuint m_id = 0;
 };

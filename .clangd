@@ -1,0 +1,5 @@
+# Tells clangd (editor language server) where CMake wrote the compile flags,
+# so it sees the same include paths and C++23 settings as the real build.
+# Needs the debug preset configured once: cmake --preset debug
+CompileFlags:
+  CompilationDatabase: build/debug

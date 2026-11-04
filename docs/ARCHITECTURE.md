@@ -9,10 +9,12 @@ This is a living document and prone to change as decisions are made.
 C++23
 
 ### compiling
+
 - GCC 14
 - CMake
 
 ### rendering and input
+
 - OpenGL 4.5: how we talk to the GPU
 - GLFW: window, OpenGL context, keyboard/mouse
 - glad: loads OpenGL functions from the driver (vendored)
@@ -26,6 +28,8 @@ artificial-space/
   CMakeLists.txt        build definition
   CMakePresets.json     named build configs: debug, release
   .gitignore            build/, *.swp
+  .clangd               points the editor's clangd at build/debug's compile flags
+  .clang-format         code style: LLVM (external/ has its own: formatting off)
   docs/
     VISION.md           premise, decisions, open questions
     ARCHITECTURE.md     this document
@@ -34,7 +38,7 @@ artificial-space/
     tickets/            small TODOs: README.md (index) + Txxxx-name.md
   src/
     main.cpp            init + loop
-    platform/           OS-facing: GlfwLibrary, Window, Input
+    platform/           OS-facing: GlfwLibrary, Window, Key, WindowTypes, ExecutablePath (Input: next feature)
     render/             GPU-facing: Renderer, ShaderProgram, Buffer, VertexArray
   shaders/              .vert / .frag, loaded at runtime
   external/
@@ -59,12 +63,14 @@ artificial-space/
 This section describes the shape of our programme, and the main loop
 
 ### main
+
 ```
 // -- init --
 // -- pass over to loop --
 ```
 
 ### loop
+
 ```
 // -- input --
 // -- tick --
@@ -76,16 +82,19 @@ This section describes the shape of our programme, and the main loop
 TBD
 
 ### Input
+
 Input needs to be determined, I am thinking a handler that wraps raw input matching to our set keys
 
-We might need to set up an API that registers hooks, so that will allow us to register a hook for <forward-down> and then when the hook fires it triggers all of the registered callers and in this case it would engage thrusters. 
+We might need to set up an API that registers hooks, so that will allow us to register a hook for <forward-down> and then when the hook fires it triggers all of the registered callers and in this case it would engage thrusters.
 
 So then the actual hooks are semantic actions, and those internally map onto our keybindings.
 
 ### Tick
+
 TBD
 
 ### Render
+
 TBD
 
 # ---- AI Yaps ----
@@ -119,4 +128,3 @@ Maintainer:
   wherever it's copied. This replaced an earlier plan to bake in an absolute
   path. Details in 001 `2-implementation.md` §0.5. The dev VM renders on
   llvmpipe, in software: never tune for it.
-
